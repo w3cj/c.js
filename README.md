@@ -7,9 +7,11 @@ A simple JavaScript MVC framework.
 Create an app.js file with an app and a router:
 
 ```js
-const app = new App();
+const app = cjs.createApp({
+  root: document.getElementById('app')
+});
 
-const router = new Router(app, {
+const router = cjs.createRouter(app, {
   routes: [{
     component: 'home',
     url: '/home'
@@ -39,6 +41,7 @@ app.addComponent('home', {
       <h1>${this.title}</h1>
       <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
       <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+      <contact></contact>
     </div>`
   }
 });
@@ -46,7 +49,7 @@ app.addComponent('home', {
 
 ## Input Binding
 
-Inputs are automatically bound to the model with the name attribute.
+Bind an input to a property on the model by setting the data-bind attribute of the input element.
 
 ```js
 app.addComponent('contact', {
@@ -58,7 +61,7 @@ app.addComponent('contact', {
     <form class="form">
       <div class="form-group">
         <label for="name">Name</label>
-        <input autofocus type="text" class="form-control" name="name" value="${this.name}">
+        <input autofocus type="text" class="form-control" name="name" data-bind="name" value="${this.name}">
       </div>
     </form>
     <h4>Hello, ${this.name}</h4>
@@ -70,12 +73,6 @@ app.addComponent('contact', {
 ## Methods
 
 Methods on the component can access and update the model properties using the `this` keyword.
-
-Event listeners can be added with HTML attributes:
-
-```html
-<form onsubmit="app.getComponent('about').methods.searchGifs(event)" class="form">
-```
 
 ```js
 app.addComponent('about', {
@@ -127,4 +124,12 @@ app.addComponent('about', {
     `
   }
 });
+```
+
+## Event Listeners
+
+Event listeners can be added with HTML attributes:
+
+```html
+<form onsubmit="app.getComponent('about').methods.searchGifs(event)" class="form">
 ```

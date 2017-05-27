@@ -1,6 +1,8 @@
-const app = new App();
+const app = cjs.createApp({
+  root: document.getElementById('app')
+});
 
-const router = new Router(app, {
+const router = cjs.createRouter(app, {
   routes: [{
     component: 'home',
     url: '/home'

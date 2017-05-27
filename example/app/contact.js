@@ -7,7 +7,7 @@ app.addComponent('contact', {
     <form class="form">
       <div class="form-group">
         <label for="name">Name</label>
-        <input autofocus type="text" class="form-control" name="name" value="${this.name}">
+        <input autofocus type="text" class="form-control" name="name" data-bind="name" value="${this.name}">
       </div>
     </form>
     <h4>Hello, ${this.name}</h4>

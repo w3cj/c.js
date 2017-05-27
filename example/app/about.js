@@ -30,7 +30,7 @@ app.addComponent('about', {
       <form onsubmit="app.getComponent('about').methods.searchGifs(event)" class="form">
         <div class="form-group">
           <label for="search">search</label>
-          <input type="text" class="form-control" name="info.search" value="${this.info.search}">
+          <input type="text" class="form-control" name="search" data-bind="info.search" value="${this.info.search}">
         </div>
         <button type="submit" class="btn btn-success">
           Search
